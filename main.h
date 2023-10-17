@@ -1,5 +1,6 @@
 #include <limits.h>
 #include <stdlib.h>
+#include <stdarg.h>
 #define OUTPUT_BUF_SIZE 1024
 #define BUF_FLUSH -1
 #define NULL_STRING "(NULL)"
