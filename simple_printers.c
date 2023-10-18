@@ -38,7 +38,7 @@ int print_rev(va_list ap, params_t *params)
 			len++;
 		str--;
 		for (; len > 0; len--, str--)
-			sum += _putchar(-str);
+			sum += _putchar(*str);
 	}
 	return (sum);
 }

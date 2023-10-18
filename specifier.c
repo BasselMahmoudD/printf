@@ -31,7 +31,7 @@ int (*get_specifier(char *s))(va_list ap, params_t *params)
 	{
 		if (*s == specifiers[i].specifier[0])
 		{
-			return (specifier[i].f);
+			return (specifiers[i].f);
 		}
 		i++;
 	}
@@ -114,7 +114,7 @@ int get_modifier(char *s, params_t *params)
  *
  * Return: new pointer
 */
-int get_width(char *s, params_t *params, va_list ap)
+char *get_width(char *s, params_t *params, va_list ap)
 {
 	int d = 0;
 
@@ -129,5 +129,5 @@ int get_width(char *s, params_t *params, va_list ap)
 			d = d * 10 + (*s++ - '0');
 	}
 	params->width = d;
-		return (s);
+	return (s);
 }

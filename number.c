@@ -18,7 +18,7 @@ char *convert(long int num, int base, int flags, params_t *params)
 	unsigned long n = num;
 	(void)params;
 
-	if (!(flags & CONVERT_UNIGNED) && num < 0)
+	if (!(flags & CONVERT_UNSIGNED) && num < 0)
 	{
 		n = -num;
 		sign = '-';
@@ -45,16 +45,16 @@ char *convert(long int num, int base, int flags, params_t *params)
  */
 int print_unsigned(va_list ap, params_t *params)
 {
-	usigned long 1;
+	unsigned long l;
 
-	if (params->1_modifier)
-		1 = (usingned long)va_arg(ap, usigned long);
+	if (params->l_modifier)
+		l = (unsigned long)va_arg(ap, unsigned long);
 	else if (params->h_modifier)
-		1 = (usingned short int)va_arg(ap, usingned int);
+		l = (unsigned short int)va_arg(ap, unsigned int);
 	else
-		1 = (unsigned int)va_arg(ap, unsigned int);
+		l = (unsigned int)va_arg(ap, unsigned int);
 	params->unsign = 1;
-	return (print_number(convert(1, 10, CONVERT_UNSIGNED, params), params));
+	return (print_number(convert(l, 10, CONVERT_UNSIGNED, params), params));
 }
 /**
  * print_address - prints address

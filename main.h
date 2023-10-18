@@ -1,4 +1,8 @@
+#ifndef _PRINTF_H
+#define _PRINTF_H
 #include <limits.h>
+#include <stdio.h>
+#include <unistd.h>
 #include <stdlib.h>
 #include <stdarg.h>
 #define OUTPUT_BUF_SIZE 1024
@@ -35,18 +39,18 @@ typedef struct parameters
 	unsigned int precision;
 	unsigned int h_modifier   :1;
 	unsigned int l_modifier   :1;
-} params_t
+} params_t;
 
 /**
  * struct specifier - struct token
  * @specifier: format token
  * @f: the function associated
  */
-typedef stuct specifier
+typedef struct specifier
 {
 	char *specifier;
-	int (*f)(va_list, params_t *)
-} specifier_t
+	int (*f)(va_list, params_t *);
+} specifier_t;
 
 /* _put.c module */
 int _puts(char *str);
@@ -69,7 +73,7 @@ int (*get_specifier(char *s))(va_list ap, params_t *params);
 int get_print_func(char *s, va_list ap, params_t *params);
 int get_flag(char *s, params_t *params);
 int get_modifier(char *s, params_t *params);
-int *get_width(char *s, params_t *params, va_list ap);
+char *get_width(char *s, params_t *params, va_list ap);
 
 /*convert _numbers.c module*/
 int print_hex(va_list ap, params_t *params);
