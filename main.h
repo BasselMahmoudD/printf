@@ -14,7 +14,7 @@
 
 /**
  * struct parameters - parameters struct
- * @insign: flag if unsigned value
+ * @unsign: flag if unsigned value
  *@plus_flag: on if plus_flag specified
  *@space_flag: on if hashtag_fflag
  *@hashtag_flag: on if _flag specified
